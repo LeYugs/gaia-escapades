@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact - Gaïa Escapades</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <header>
+
+        <div class="header-top">
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/gaia_escapades?igsi=MXRwbDNnaWJ1dzJ4cQ==/" target="_blank" class="instagram" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img
+                    src="images/LogoMain.png"
+                    alt="Logo de Gaïa Escapades"
+                >
+            </a>
+
+            <!-- Bouton contact -->
+            <a href="contact.html" class="header-contact">
+                Contactez-moi
+            </a>
+
+            <!-- Burger -->
+            <button class="burger" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="header-nav">
+
+            <a href="index.html">Accueil</a>
+            <a href="travel-planner.html">Travel Planner</a>
+            <a href="mes-offres.html">Mes offres</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="faq.html">Foire aux questions</a>
+            
+            <a href="contact.html" class="header-contact header-contact--mobile">Contactez-moi</a>
+
+        </nav>
+
+    </header>
+    <!-- Voile d'arrière-plan à placer après le header -->
+    <div class="menu-overlay"></div>
+
+
+<!-- ==================================================
+     CONTENU PRINCIPAL
+================================================== -->
+
+<main>
+
+    <!-- ==================================================
+         HERO CONTACT
+    ================================================== -->
+
+    <section class="hero hero-contact">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Contactez moi !</h1>
+            <p>
+                Je serai ravie d’échanger avec vous ! Que ce soit pour une question ou une demande de devis, je suis à votre disposition. Remplissez simplement le formulaire ci-dessous, et je vous répondrai.
+            </p>
+            <p>À bientôt !</p>
+        </div>
+    </section>
+
+
+    <!-- ==================================================
+         SECTION CONTACT (Formulaire + Infos)
+    ================================================== -->
+
+    <section class="contact-section">
+        <div class="contact-container">
+
+            <!-- Formulaire de contact -->
+            <div class="contact-form-wrapper">
+                <h2>Parlez-moi de votre projet</h2>
+
+                <form action="#" method="POST" class="contact-form">
+
+                    <div class="form-group">
+                        <label for="name">Nom & Prénom *</label>
+                        <input type="text" id="name" name="name" placeholder="Ex: Marie Dupont" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Adresse E-mail *</label>
+                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="destination">Destination envisagée</label>
+                            <input type="text" id="destination" name="destination" placeholder="Ex: Italie, Corfou, Road trip...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="type-voyage">Type de séjour</label>
+                            <select id="type-voyage" name="type-voyage">
+                                <option value="" disabled selected>Choisissez une option</option>
+                                <option value="famille">En famille</option>
+                                <option value="couple">En couple</option>
+                                <option value="amis">Entre amis</option>
+                                <option value="solo">En solo</option>
+                                <option value="animaux">Avec mon animal de compagnie</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Votre message / Vos envies *</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Dites-moi tout : dates souhaitées, budget approximatif, nombre de participants, style de voyage, envies particulières..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="button button-primary">
+                        Envoyer mon message
+                    </button>
+
+                </form>
+            </div>
+
+
+            <!-- Infos de contact direct -->
+            <div class="contact-info-wrapper">
+
+                <h2>Vos contacts directs</h2>
+                <p>Vous préférez m'écrire directement ?</p>
+
+                <div class="info-item">
+                    <h3>E-mail</h3>
+                    <p>
+                        <a href="mailto:gaia.escapades@gmail.com" onclick="copierEmail(event)">
+                            gaia.escapades@gmail.com
+                        </a>
+                    </p>
+                </div>
+
+                <div class="info-item">
+                    <h3>Whatsapp</h3>
+                    <p>07.63.63.09.14</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>Mes réseaux</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/gaia_escapades" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon">
+                            <img src="images/Contact/insta-logo.svg" alt="Logo Instagram" width="35" height="35" class="social-icon-blue">
+                        </a>
+
+                        <a href="https://www.facebook.com/share/1HsQFWAzW2/" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon">
+                            <img src="images/Contact/facebook-logo.svg" alt="Logo Facebook" width="35" height="35" class="social-icon-blue">
+                        </a>
+
+                        <a href="https://wa.me/33763630914" target="_blank" rel="noopener" aria-label="Whatsapp" class="social-icon">
+                            <img src="images/Contact/whatsapp-Logo.svg" alt="Logo Whatsapp" width="35" height="35" class="social-icon-blue">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="footer">
+
+        <nav class="footer-nav">
+
+            <a href="index.html">Accueil</a>
+            <a href="contact.html">Contact</a>
+            <a href="mentions-legales.html">Mentions légales</a>
+            <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+            <a href="cgs.html">CGS</a>
+
+        </nav>
+
+        <p>
+            Copyright &copy; 2026 Gaïa Escapades -
+            Tous droits réservés.
+        </p>
+
+    </footer>
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

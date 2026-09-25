@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Destinations - Gaïa Escapades</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="carte-destinations.css">
+</head>
+
+<body class="destinations">
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <header>
+
+        <div class="header-top">
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/gaia_escapades?igsi=MXRwbDNnaWJ1dzJ4cQ==/" target="_blank" class="instagram" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img
+                    src="images/LogoMain.png"
+                    alt="Logo de Gaïa Escapades"
+                >
+            </a>
+
+            <!-- Bouton contact -->
+            <a href="contact.html" class="header-contact">
+                Contactez-moi
+            </a>
+
+            <!-- Burger -->
+            <button class="burger" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="header-nav">
+
+            <a href="index.html">Accueil</a>
+            <a href="travel-planner.html">Travel Planner</a>
+            <a href="mes-offres.html">Mes offres</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="faq.html">Foire aux questions</a>
+            
+            <a href="contact.html" class="header-contact header-contact--mobile">Contactez-moi</a>
+
+        </nav>
+
+    </header>
+    <!-- Voile d'arrière-plan à placer après le header -->
+    <div class="menu-overlay"></div>
+
+    <!-- ==================================================
+         CORPS
+    ================================================== -->
+
+    <section class="DescriptionDestinations">
+
+        <h1>Destinations</h1>
+        <h2>Les destinations présentées ici sont avant tout quelques exemples pour vous donner des idées.</h2>
+
+        <p>
+            Elles ont toutes un point commun : je les ai moi-même découvertes et j’ai préparé mes propres séjours avant de partir. Je sais donc ce que représente la recherche d’un hébergement, la comparaison des transports, la construction d’un itinéraire, l’organisation des activités et toutes ces petites recherches qui permettent de préparer un voyage dans les moindres détails.
+        </p>
+        <p>Mais mon objectif n’est pas de reproduire mes voyages.</p>
+        <p>Je pars de votre destination, de votre budget, de vos envies et de votre façon de voyager pour construire un séjour totalement personnalisé.</p>
+        <p>Vous rêvez d’un pays que vous ne voyez pas ici ? D’une destination moins connue ? D’un voyage en famille, entre amis, en couple ou avec votre chien ? Parlez-moi de votre projet.</p>
+        <p>Je suis ouverte à toutes les destinations dans le monde. Et si vous me confiez un projet dans un endroit que je ne connais pas encore, ce sera aussi l’occasion pour moi de partir à sa découverte à travers vos envies.</p>
+        <p>Mon but n'est pas simplement de vous proposer une destination, je veux vous aider à imaginer l'expérience que vous allez vivre.</p>
+        
+    </section>
+
+    <!-- ==================================================
+         CARTE INTERACTIVE
+    ================================================== -->
+
+    <section class="CarteDestinations">
+
+        <div class="CarteDestinations-cadre">
+
+            <img src="images/Destinations/Carte_du_monde.svg" alt="Carte du monde">
+
+            <button class="pin-destination" type="button" data-cible="Japon" style="--x:82.5%; --y:31%" aria-pressed="false">
+                <span class="pin-halo"></span>
+                <span class="pin-point"></span>
+                <span class="pin-label">Japon</span>
+            </button>
+
+            <button class="pin-destination" type="button" data-cible="Corse" style="--x:46.2%; --y:28%" aria-pressed="false">
+                <span class="pin-halo"></span>
+                <span class="pin-point"></span>
+                <span class="pin-label">Corse</span>
+            </button>
+
+            <button class="pin-destination" type="button" data-cible="Italie" style="--x:47.5%; --y:26.7%" aria-pressed="false">
+                <span class="pin-halo"></span>
+                <span class="pin-point"></span>
+                <span class="pin-label">Italie</span>
+            </button>
+
+            <button class="pin-destination" type="button" data-cible="Sicile" style="--x:53.7%; --y:28.8%" aria-pressed="false">
+                <span class="pin-halo"></span>
+                <span class="pin-point"></span>
+                <span class="pin-label">Sicile</span>
+            </button>
+
+            <button class="pin-destination" type="button" data-cible="Corfou" style="--x:55.5%; --y:28%" aria-pressed="false">
+                <span class="pin-halo"></span>
+                <span class="pin-point"></span>
+                <span class="pin-label">Corfou</span>
+            </button>
+
+            <button class="pin-destination" type="button" data-cible="Andalousie" style="--x:40.3%; --y:29.2%" aria-pressed="false">
+                <span class="pin-halo"></span>
+                <span class="pin-point"></span>
+                <span class="pin-label">Andalousie</span>
+            </button>
+
+            <button class="pin-destination" type="button" data-cible="Canaries" style="--x:40.4%; --y:34.3%" aria-pressed="false">
+                <span class="pin-halo"></span>
+                <span class="pin-point"></span>
+                <span class="pin-label">Canaries</span>
+            </button>
+
+        </div>
+
+        <p class="CarteDestinations-invite" id="inviteCarte">Cliquez sur un point de la carte pour découvrir la destination.</p>
+
+    </section>
+
+    <section class="Japon">
+
+        <img src="images/Destinations/JAPON.webp" alt="Image du Japon">
+        
+        <div class="Japon-content">
+
+            <h1>Japon — Une destination qui me tient particulièrement à cœur</h1>
+            <p>Le Japon occupe une place un peu particulière dans cette aventure, puisque j'ai moi-même eu l'occasion d'y réaliser un road trip.</p>
+            <p>Pendant 16 jours, j'ai découvert 10 villes différentes, en préparant moi-même les différentes étapes, les transports, les hébergements et les visites.</p>
+            <p>Cette expérience m'a permis de constater à quel point une bonne préparation peut faire la différence, particulièrement pour une destination aussi riche et dépaysante que le Japon.</p>
+            <p>Aujourd'hui, je peux donc vous accompagner dans la préparation de votre propre voyage au Japon : Tokyo, Kyoto, Osaka, mais aussi des destinations plus éloignées des grands classiques, selon vos envies et le temps dont vous disposez.</p>
+
+        </div>
+    </section>
+
+    <section class="Corfou">
+
+        <img src="images/Destinations/CORFOU.webp" alt="Image de Corfou">
+        
+        <div class="Corfou-content">
+
+            <h1>Corfou — Une parenthèse méditerranéenne</h1>
+            <p>Corfou est le genre de destination où l’on peut facilement avoir envie de ne rien faire… et c’est très bien comme ça !</p>
+            <p>Une journée à découvrir les petites rues et les villages, une autre à explorer l’île, une autre encore à profiter d’une plage ou d’une bonne adresse pour déjeuner.</p>
+            <p>Je peux vous proposer un séjour qui mélange découverte et détente, en fonction de ce que vous souhaitez réellement faire pendant vos vacances.</p>
+            <p>Pas besoin de remplir chaque journée : parfois, les meilleurs souvenirs sont ceux qui naissent d’une balade improvisée, d’un endroit découvert par hasard ou d’une après-midi passée à profiter du soleil.</p>
+
+        </div>
+    </section>
+
+    <section class="Canaries">
+
+        <img src="images/Destinations/CANARIES.webp" alt="Image des Canaries">
+        
+        <div class="Canaries-content">
+
+            <h1>Les Canaries — Entre nature, découvertes et farniente</h1>
+            <p>Tenerife, Grande Canarie… Les Canaries offrent une multitude de possibilités pour construire un séjour qui vous ressemble.</p>
+            <p>Vous aimez marcher et découvrir les paysages ? Nous pouvons intégrer des randonnées et des lieux naturels à votre itinéraire.</p>
+            <p>Vous préférez les visites, les villages et la gastronomie ? Je peux rechercher les endroits qui méritent une étape.</p>
+            <p>Vous rêvez surtout de soleil et de moments de détente ? Le programme peut tout simplement laisser davantage de place au repos.</p>
+            <p>Le but n’est jamais de remplir votre séjour à tout prix, mais de trouver le rythme qui vous correspond.</p>
+
+        </div>
+    </section>
+
+    <section class="Sicile">
+
+        <img src="images/Destinations/SICILE.webp" alt="Image de la Sicile">
+        
+        <div class="Sicile-content">
+
+            <h1>La Sicile — Profiter de chaque instant, même sur quelques jours</h1>
+            <p>La Sicile est parfaite pour ceux qui veulent s’évader sans forcément partir longtemps.</p>
+            <p>Même avec seulement quelques jours, il est possible de créer un joli séjour, à condition de bien réfléchir à son organisation. Chaque journée peut être pensée pour profiter pleinement du temps disponible, sans transformer les vacances en course contre la montre.</p>
+            <p>Je peux vous aider à trouver le bon équilibre entre les visites, les déplacements, les découvertes culinaires et les moments de détente.</p>
+            <p>Parce qu’un court séjour bien pensé peut parfois laisser autant de souvenirs qu’un long voyage.</p>
+
+        </div>
+    </section>
+
+    <section class="Italie">
+
+        <img src="images/Destinations/ITALIE.webp" alt="Image de l'Italie">
+        
+        <div class="Italie-content">
+
+            <h1>L'Italie — Entre Histoire et Dolce vita</h1>
+            <p>L’Italie est une destination que j’aime particulièrement pour la diversité des expériences qu’elle permet. On peut passer quelques jours à déambuler dans les rues d’une grande ville, prendre le temps de découvrir une région ou partir plusieurs jours sur les routes pour un véritable road trip.</p>
+            <p>J’aime imaginer un voyage où les étapes s’enchaînent naturellement : une ville à découvrir, un petit village à explorer, une bonne adresse repérée sur le chemin, puis quelques heures pour simplement profiter.</p>
+            <p>En Italie, je peux vous aider à construire un voyage qui alterne découvertes et moments de liberté, que vous souhaitiez un séjour rythmé par les visites ou, au contraire, prendre davantage le temps de vivre au rythme de la destination.</p>
+
+        </div>
+    </section>
+
+    <section class="Andalousie">
+
+        <img src="images/Destinations/ANDALOUSIE.webp" alt="Image de l'Andalousie">
+        
+        <div class="Andalousie-content">
+
+            <h1>L'Andalousie — Le soleil, les villes et les petits détours</h1>
+            <p>L’Andalousie est une destination qui se prête particulièrement bien à un voyage itinérant. Séville, Grenade, Cordoue, Malaga, les villages blancs… il y a de quoi remplir un séjour, mais aussi de quoi prendre son temps.</p>
+            <p>Ce que j’aime dans cette région, c’est pouvoir mélanger les incontournables avec des endroits un peu moins touristiques, s’arrêter dans un village, découvrir une bonne adresse ou simplement profiter d’une terrasse au soleil.</p>
+            <p>Votre voyage peut être construit autour de la découverte culturelle, de la gastronomie, des paysages ou simplement de l’envie de profiter de l’ambiance andalouse.</p>
+
+        </div>
+    </section>
+
+        <section class="Corse">
+
+        <img src="images/Destinations/CORSE.webp" alt="Image de la Corse">
+        
+        <div class="Corse-content">
+
+            <h1>La Corse — Prendre le temps de découvrir l'île</h1>
+            <p>La Corse est une destination qui donne envie de prendre la route et de découvrir l’île au fil des étapes.</p>
+            <p>Sur deux semaines, pourquoi ne pas imaginer un itinéraire du Nord au Sud, en alternant les paysages, les plages, les villages et les différentes ambiances de l’île ?</p>
+            <p>L’objectif est de ne pas simplement accumuler les lieux à visiter, mais de construire un itinéraire agréable, avec des temps de trajet raisonnables et suffisamment de temps pour profiter de chaque étape.</p>
+            <p>Une journée peut être consacrée à une découverte, une autre à une randonnée, une autre encore simplement à profiter d’une plage.</p>
+
+
+        </div>
+    </section>
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="footer">
+
+        <nav class="footer-nav">
+
+            <a href="index.html">Accueil</a>
+            <a href="contact.html">Contact</a>
+            <a href="mentions-legales.html">Mentions légales</a>
+            <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+            <a href="cgs.html">CGS</a>
+
+        </nav>
+
+        <p>
+            Copyright &copy; 2026 Gaïa Escapades -
+            Tous droits réservés.
+        </p>
+
+    </footer>
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script src="script.js"></script>
+    <script src="carte-destinations.js"></script>
+
+</body>
+
+</html>

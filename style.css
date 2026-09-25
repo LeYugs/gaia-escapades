@@ -1,0 +1,2891 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
+
+/* ==================================================
+   SOMMAIRE
+   1.  Variables
+   2.  Base
+   3.  Header
+   4.  Navigation
+   5.  Menu burger
+   6.  Hero
+   7.  Boutons
+   8.  Présentation & explication
+   9.  Footer
+   10. Formulaire de contact
+   11. Page contact
+   12. Page destinations
+   13. Page offres
+   14. Page travel planner
+   15. Page FAQ
+   16. Pages légales (mentions, confidentialité, CGS)
+   17. Responsive
+================================================== */
+
+
+/* ==================================================
+   1. VARIABLES
+================================================== */
+
+:root {
+
+    /* ---------- Couleurs ---------- */
+
+    --couleur-principale: #e0ccaf;
+    --couleur-accent-dore: #c48b5e;
+
+    --couleur-bleu: #315b91;
+    --couleur-bleu-clair: #e9f0fa;
+    --couleur-bleu-fonce: #264a78;
+    --couleur-bleu-marine: #2b4c7e;
+
+    --couleur-texte: #222222;
+    --couleur-texte-secondaire: #333333;
+    --couleur-texte-tertiaire: #444444;
+    --couleur-texte-muted: #555555;
+    --couleur-texte-doux: #666666;
+    --couleur-texte-clair: #ffffff;
+    --couleur-noir: #000000;
+
+    --couleur-fond: #ffffff;
+    --couleur-fond-header: #ebdec3;
+    --couleur-fond-footer: #ebdec3;
+    --couleur-fond-offres: #335585;
+    --couleur-fond-alt: #f9f9f9;
+    --couleur-fond-carte: #f7f8f9;
+    --couleur-fond-note: #fcfbf7;
+    --couleur-fond-doux: #f7f6f2;
+
+    --couleur-bordure-claire: #cccccc;
+    --couleur-bordure-legere: #eeeeee;
+    --couleur-trait: #d8d8d8;
+
+
+    /* ---------- Typographie ---------- */
+
+    --police-titre: "Cormorant Garamond", serif;
+    --police-texte: "Montserrat", sans-serif;
+
+    --taille-sous-titre: clamp(22px, 2vw, 28px);
+    --taille-titre-section: clamp(32px, 3vw, 46px);
+    --taille-texte: 16px;
+
+
+    /* ---------- Images ---------- */
+
+    --image-fond-home: url("images/FondPageHome.webp");
+
+
+    /* ---------- Espacements ---------- */
+
+    --espace-xs: 5px;
+    --espace-sm: 10px;
+    --espace-md: 20px;
+    --espace-lg: 40px;
+    --espace-xl: 60px;
+
+
+    /* ---------- Mise en page ---------- */
+
+    --largeur-max-site: 1400px;
+    --largeur-max-texte: 650px;
+    --largeur-logo: 300px;
+    --taille-image-presentation: 560px;
+
+
+    /* ---------- Boutons ---------- */
+
+    --padding-bouton-vertical: 13px;
+    --padding-bouton-horizontal: 30px;
+    --epaisseur-bordure: 2px;
+
+
+    /* ---------- Effets ---------- */
+
+    --transition-duree: 0.3s;
+    --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --radius-lg: 16px;
+}
+
+
+/* ==================================================
+   2. BASE
+================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    color: var(--couleur-texte);
+    background-color: var(--couleur-fond);
+
+    font-family: var(--police-texte);
+}
+
+body.index,
+body.destinations {
+    background-color: var(--couleur-fond);
+}
+
+body.destinations {
+    background-image: none;
+}
+
+/* Verrouille le défilement quand le menu mobile est ouvert */
+body.menu-open {
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* ==================================================
+   3. HEADER
+================================================== */
+
+/* Le header remonte au scroll : le décalage dépend de la hauteur du logo */
+header {
+    position: sticky;
+    top: calc(-10px - (var(--largeur-logo) / 1.75));
+    left: 0;
+
+    width: 100%;
+    z-index: 1000;
+
+    background-color: var(--couleur-fond-header);
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.header-top {
+    position: relative;
+
+    height: calc(15px + (var(--largeur-logo) / 1.75));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ---------- Logo ---------- */
+
+.logo {
+    display: block;
+    line-height: 0;
+}
+
+.logo img {
+    display: block;
+
+    width: var(--largeur-logo);
+    height: auto;
+}
+
+
+/* ---------- Instagram ---------- */
+
+.instagram {
+    position: absolute;
+    left: 5%;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--couleur-bleu);
+
+    border: 2px solid var(--couleur-bleu);
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    transition:
+        background-color var(--transition-duree) ease,
+        color var(--transition-duree) ease;
+}
+
+.instagram svg {
+    width: 30px;
+    height: 30px;
+}
+
+.instagram:hover {
+    background-color: var(--couleur-bleu);
+    color: var(--couleur-texte-clair);
+}
+
+
+/* ---------- Bouton contact ---------- */
+
+.header-contact {
+    position: absolute;
+    right: 5%;
+
+    padding: 12px 22px;
+
+    background-color: var(--couleur-bleu);
+    color: var(--couleur-texte-clair);
+
+    font-family: var(--police-texte);
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        transform var(--transition-duree) ease,
+        background-color var(--transition-duree) ease;
+}
+
+.header-contact:hover {
+    background-color: var(--couleur-bleu-fonce);
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   4. NAVIGATION
+================================================== */
+
+.header-nav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px 20px 17px;
+
+    background-color: var(--couleur-fond-header);
+}
+
+.header-nav a {
+    position: relative;
+
+    padding: 0 20px;
+
+    color: var(--couleur-texte);
+
+    font-family: var(--police-texte);
+    font-size: 16px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: color var(--transition-duree) ease;
+}
+
+.header-nav a:not(:last-child)::after {
+    content: "•";
+
+    position: absolute;
+    right: -3px;
+
+    color: var(--couleur-principale);
+}
+
+.header-nav a:hover {
+    color: var(--couleur-bleu);
+}
+
+/* Bouton contact réservé au tiroir mobile (voir section 17) */
+.header-nav .header-contact--mobile {
+    display: none;
+}
+
+
+/* ==================================================
+   5. MENU BURGER
+================================================== */
+
+/* Le bouton n'existe qu'en mobile : tout son style est en section 17 */
+.burger {
+    display: none;
+}
+
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ==================================================
+   6. HERO
+================================================== */
+
+.hero {
+    position: relative;
+    min-height: calc(100vh - 190px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 20px;
+    text-align: center;
+
+    background-image: var(--image-fond-home);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        rgba(26, 38, 57, 0.7) 0%,
+        rgba(196, 129, 114, 0.5) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 780px;
+    padding: 45px 35px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    margin-bottom: 18px;
+
+    font-family: var(--police-texte);
+    font-size: 13px;
+    font-weight: 600;
+
+    color: var(--couleur-texte-clair);
+    background: rgba(0, 0, 0, 0.25);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero h1 {
+    margin: 0;
+
+    color: var(--couleur-texte-clair);
+
+    font-family: var(--police-titre);
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1.1;
+
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle {
+    margin: 18px 0 15px;
+
+    color: var(--couleur-principale);
+
+    font-family: var(--police-titre);
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-style: italic;
+    font-weight: 600;
+
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+}
+
+.hero-description {
+    max-width: 580px;
+    margin: 0 auto 30px;
+
+    color: var(--couleur-texte-clair);
+
+    font-family: var(--police-texte);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.6;
+
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ==================================================
+   7. BOUTONS
+================================================== */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 28px;
+
+    font-family: var(--police-texte);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.button-primary {
+    background-color: var(--couleur-principale);
+    color: var(--couleur-texte);
+
+    border: 2px solid var(--couleur-principale);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.button-secondary {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: var(--couleur-texte-clair);
+
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+.button-primary:hover,
+.button-secondary:hover {
+    background-color: var(--couleur-texte-clair);
+    color: var(--couleur-texte);
+    border-color: var(--couleur-texte-clair);
+
+    transform: scale(1.04);
+}
+
+
+/* ==================================================
+   8. PRÉSENTATION & EXPLICATION
+================================================== */
+
+.presentation,
+.explication {
+    width: 100%;
+    padding: 100px 40px;
+
+    background-color: var(--couleur-fond);
+}
+
+.presentation-inner,
+.explication-inner {
+    width: 100%;
+    max-width: var(--largeur-max-site);
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: clamp(50px, 7vw, 110px);
+}
+
+/* Bloc explication : image et texte inversés */
+.explication-inner {
+    flex-direction: row-reverse;
+}
+
+.presentation-image,
+.explication-image {
+    flex: 1;
+    min-width: 0;
+}
+
+.presentation-image img,
+.explication-image img {
+    display: block;
+
+    width: 100%;
+    max-width: var(--taille-image-presentation);
+    height: 560px;
+
+    object-fit: cover;
+    border-radius: 3px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+}
+
+.presentation-text,
+.explication-text {
+    flex: 1;
+    max-width: var(--largeur-max-texte);
+
+    text-align: justify;
+}
+
+.section-label {
+    display: block;
+    margin-bottom: 10px;
+
+    color: var(--couleur-accent-dore);
+
+    font-family: var(--police-texte);
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.presentation h2,
+.explication h2 {
+    margin: 0 0 30px;
+
+    font-family: var(--police-titre);
+    font-size: var(--taille-titre-section);
+    font-weight: 600;
+    line-height: 1.05;
+
+    text-align: left;
+}
+
+.presentation p,
+.explication p {
+    margin: 0 0 18px;
+
+    font-family: var(--police-texte);
+    font-size: var(--taille-texte);
+    line-height: 1.75;
+
+    color: var(--couleur-texte-secondaire);
+}
+
+
+/* ==================================================
+   9. FOOTER
+================================================== */
+
+.footer {
+    padding: 30px 40px;
+
+    background-color: var(--couleur-fond-footer);
+    color: var(--couleur-texte);
+
+    text-align: center;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 0;
+    margin-bottom: 15px;
+}
+
+.footer-nav a {
+    padding: 0 15px;
+
+    color: var(--couleur-texte);
+
+    font-family: var(--police-texte);
+    font-size: 13px;
+
+    text-decoration: none;
+
+    transition: color var(--transition-duree) ease;
+}
+
+.footer-nav a:hover {
+    color: var(--couleur-bleu);
+}
+
+.footer-nav a:not(:last-child)::after {
+    content: "•";
+
+    margin-left: 30px;
+
+    color: var(--couleur-bleu);
+}
+
+.footer p {
+    margin: 0;
+
+    font-family: var(--police-texte);
+    font-size: 12px;
+
+    color: var(--couleur-texte-muted);
+}
+
+
+/* ==================================================
+   10. FORMULAIRE DE CONTACT
+================================================== */
+
+.contact-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.contact-form-wrapper {
+    flex: 2;
+    min-width: 300px;
+}
+
+.contact-info-wrapper {
+    flex: 1;
+    min-width: 280px;
+
+    padding: 30px;
+
+    background-color: var(--couleur-fond-alt);
+    border-radius: 8px;
+}
+
+.contact-info-wrapper h2 {
+    margin-bottom: 15px;
+}
+
+
+/* ---------- Champs ---------- */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+
+    font-family: var(--police-texte);
+    font-size: 1rem;
+
+    border: 1px solid var(--couleur-bordure-claire);
+    border-radius: 5px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--couleur-texte);
+}
+
+
+/* ---------- Réseaux sociaux ---------- */
+
+.info-item {
+    margin-top: 25px;
+}
+
+.info-item h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+    line-height: 0;
+}
+
+/* Recolore les SVG noirs en bleu */
+.social-icon-blue {
+    filter: invert(32%) sepia(85%) saturate(1986%) hue-rotate(212deg) brightness(97%) contrast(93%);
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.social-icon:hover .social-icon-blue {
+    transform: scale(1.1);
+    filter: invert(24%) sepia(90%) saturate(3000%) hue-rotate(215deg) brightness(90%) contrast(100%);
+}
+
+
+/* ==================================================
+   11. PAGE CONTACT
+================================================== */
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--espace-xl);
+    padding: 100px;
+
+    background-color: var(--couleur-fond);
+}
+
+.contact-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.contact h1 {
+    margin-top: 0;
+    font-size: var(--taille-titre-section);
+}
+
+.contact-content > p {
+    margin-bottom: var(--espace-lg);
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact label {
+    margin-bottom: var(--espace-xs);
+    font-weight: bold;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+
+    margin-bottom: var(--espace-md);
+    padding: 12px;
+
+    font-family: inherit;
+    font-size: var(--taille-texte);
+
+    border: 1px solid var(--couleur-bordure-claire);
+}
+
+.contact textarea {
+    resize: vertical;
+}
+
+.contact button {
+    align-self: flex-start;
+
+    padding: var(--padding-bouton-vertical) var(--padding-bouton-horizontal);
+
+    background-color: var(--couleur-principale);
+    color: var(--couleur-texte);
+
+    border: var(--epaisseur-bordure) solid var(--couleur-principale);
+
+    font-family: inherit;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.contact-image {
+    width: 45%;
+    height: auto;
+
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ==================================================
+   12. PAGE DESTINATIONS
+================================================== */
+
+    .DescriptionDestinations {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 40px 30px;
+
+        background-color: var(--couleur-bleu);
+
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .DescriptionDestinations h1 {
+        margin: 0 0 15px;
+
+        font-family: var(--police-titre);
+        font-size: var(--taille-titre-section);
+        font-weight: 600;
+        line-height: 1.2;
+
+        color: var(--couleur-texte-clair);
+        text-align: center;
+    }
+
+    .DescriptionDestinations h2 {
+        margin: 0 0 25px;
+
+        font-family: var(--police-titre);
+        font-size: var(--taille-sous-titre);
+        font-style: italic;
+        font-weight: 400;
+        line-height: 1.4;
+
+        color: var(--couleur-principale);
+        text-align: center;
+    }
+
+    .DescriptionDestinations p {
+        margin-bottom: 15px;
+
+        font-family: var(--police-texte);
+        font-size: 0.95rem;
+        line-height: 1.7;
+
+        color: var(--couleur-texte-clair);
+        text-align: center;
+    }
+
+
+    /* ---------- Blocs pays ----------
+    Structure identique pour les 7 destinations : seule l'alternance
+    gauche/droite de l'image change. */
+
+    .Japon,
+    .Corfou,
+    .Canaries,
+    .Sicile,
+    .Italie,
+    .Andalousie,
+    .Corse {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 40px;
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 0 20px;
+    }
+
+    .Corfou,
+    .Sicile,
+    .Andalousie {
+        flex-direction: row-reverse;
+    }
+
+    .Japon img,
+    .Corfou img,
+    .Canaries img,
+    .Sicile img,
+    .Italie img,
+    .Andalousie img,
+    .Corse img {
+        flex: 1;
+        width: 100%;
+        max-width: 50%;
+        height: auto;
+
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .Japon-content,
+    .Corfou-content,
+    .Canaries-content,
+    .Sicile-content,
+    .Italie-content,
+    .Andalousie-content,
+    .Corse-content {
+        flex: 1;
+        max-width: 50%;
+    }
+
+    .Japon-content h1,
+    .Corfou-content h1,
+    .Canaries-content h1,
+    .Sicile-content h1,
+    .Italie-content h1,
+    .Andalousie-content h1,
+    .Corse-content h1 {
+        margin-bottom: 20px;
+
+        font-family: var(--police-titre);
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .Japon-content p,
+    .Corfou-content p,
+    .Canaries-content p,
+    .Sicile-content p,
+    .Italie-content p,
+    .Andalousie-content p,
+    .Corse-content p {
+        margin-bottom: 15px;
+
+        font-family: var(--police-texte);
+        line-height: 1.6;
+
+        color: var(--couleur-texte-secondaire);
+        text-align: justify;
+    }
+
+/* ==================================================
+   13. PAGE OFFRES
+================================================== */
+
+.page-offres {
+    background-color: var(--couleur-fond-offres);
+}
+
+
+/* ---------- Intro ---------- */
+
+.offres-intro {
+    max-width: 800px;
+    margin: 50px auto 40px;
+    padding: 0 20px;
+
+    text-align: center;
+}
+
+.offres-intro h1 {
+    margin-bottom: 15px;
+
+    font-family: var(--police-titre);
+    font-size: 2.8rem;
+
+    color: var(--couleur-texte-clair);
+    text-align: left;
+    text-decoration: underline;
+}
+
+.offres-intro .intro-text {
+    font-family: var(--police-texte);
+    font-size: 1.05rem;
+    line-height: 1.6;
+
+    color: var(--couleur-texte-clair);
+    text-align: justify;
+}
+
+
+/* ---------- Cartes d'offres ---------- */
+
+.offres-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 60px;
+    padding: 0 20px;
+}
+
+.offre-card {
+    display: flex;
+    flex-direction: column;
+
+    background: var(--couleur-fond);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offre-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.offre-image1,
+.offre-image2,
+.offre-image3 {
+    width: 100%;
+    height: 220px;
+}
+
+.offre-image1 img,
+.offre-image2 img,
+.offre-image3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Recadrages spécifiques à chaque visuel */
+.offre-image1 img {
+    object-position: center 35%;
+}
+
+.offre-image2 img {
+    object-position: center 20%;
+}
+
+.offre-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    padding: 25px;
+}
+
+.offre-details h1 {
+    margin-bottom: 5px;
+
+    font-family: var(--police-titre);
+    font-size: 1.8rem;
+
+    color: var(--couleur-bleu-marine);
+}
+
+.offre-details h2 {
+    margin-bottom: 10px;
+
+    font-family: var(--police-texte);
+    font-size: 1.1rem;
+
+    color: var(--couleur-accent-dore);
+}
+
+.offre-details .tagline {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+
+    font-family: var(--police-titre);
+    font-size: 1.1rem;
+    font-style: italic;
+
+    color: var(--couleur-texte-muted);
+    border-bottom: 1px solid var(--couleur-bordure-legere);
+}
+
+.offre-details p {
+    margin-bottom: 12px;
+
+    font-family: var(--police-texte);
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+    color: var(--couleur-texte-tertiaire);
+    text-align: justify;
+}
+
+/* Colle le bouton en bas de carte quels que soient les textes */
+.offre-footer {
+    margin-top: auto;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.btn-reserver {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 28px;
+
+    background-color: var(--couleur-principale);
+    color: var(--couleur-noir);
+
+    font-family: var(--police-titre);
+    font-size: 1.15rem;
+    font-weight: 600;
+
+    text-align: center;
+    text-decoration: none;
+
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reserver:hover {
+    background-color: var(--couleur-bleu);
+    color: var(--couleur-texte-clair);
+}
+
+
+/* ---------- Note & à savoir ---------- */
+
+.offres-note {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.note-card {
+    padding: 25px 30px;
+
+    background-color: var(--couleur-fond-note);
+    border-left: 4px solid var(--couleur-accent-dore);
+    border-radius: 4px;
+}
+
+.a-savoir {
+    max-width: 1100px;
+    margin: 40px auto 60px;
+    padding: 50px;
+
+    background-color: var(--couleur-fond);
+    border-radius: 12px;
+}
+
+.a-savoir-card h2 {
+    margin: 0 0 20px;
+
+    font-family: var(--police-titre);
+    font-size: 2.5rem;
+
+    color: var(--couleur-bleu-marine);
+    text-align: center;
+}
+
+.note-card p,
+.a-savoir-card p {
+    font-family: var(--police-texte);
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    color: var(--couleur-texte-tertiaire);
+    text-align: justify;
+}
+
+.note-card p {
+    margin: 0;
+}
+
+.a-savoir-card p {
+    margin-bottom: 15px;
+}
+
+
+/* ---------- Options (cartes polaroïd) ---------- */
+
+.options-section {
+    padding: 60px 20px;
+
+    background-color: var(--couleur-principale);
+    color: var(--couleur-texte-secondaire);
+
+    font-family: var(--police-texte);
+    text-align: center;
+}
+
+.options-section .section-title {
+    margin-bottom: 50px;
+
+    font-family: var(--police-titre);
+    font-size: 2.2rem;
+    font-weight: 600;
+
+    color: var(--couleur-texte);
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.polaroid-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    min-width: 280px;
+    max-width: 360px;
+    padding: 20px 20px 30px;
+
+    background-color: var(--couleur-fond-carte);
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.polaroid-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.polaroid-card .image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 20px;
+
+    background-color: #e5e5e5;
+    overflow: hidden;
+}
+
+.polaroid-card .image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.polaroid-card .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.polaroid-card h3 {
+    margin: 0 0 15px;
+
+    font-family: var(--police-titre);
+    font-size: 1.15rem;
+    font-weight: 600;
+
+    color: var(--couleur-texte);
+}
+
+.polaroid-card p {
+    margin: 0;
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+
+    color: var(--couleur-texte-muted);
+    text-align: center;
+}
+
+.section-footer {
+    margin-top: 40px;
+
+    font-family: var(--police-titre);
+    font-size: 1.4rem;
+    font-style: italic;
+
+    color: var(--couleur-texte);
+}
+
+
+/* ---------- Carnet de voyage ---------- */
+
+.carnet-voyage-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+
+    font-family: var(--police-texte);
+    color: var(--couleur-texte-secondaire);
+}
+
+.carnet-voyage-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    max-width: 480px;
+    text-align: center;
+}
+
+.carnet-voyage-titre h1 {
+    margin: 0 0 25px;
+
+    font-family: var(--police-titre);
+    font-size: 2.5rem;
+    font-weight: 600;
+
+    color: var(--couleur-texte-clair);
+}
+
+.carnet-voyage-image {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.carnet-voyage-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carnet-voyage-content {
+    flex: 1.2;
+}
+
+.carnet-voyage-content h2 {
+    margin: 0 0 20px;
+
+    font-family: var(--police-titre);
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    color: var(--couleur-texte-clair);
+}
+
+.carnet-voyage-content ul {
+    margin: 0 0 25px;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.carnet-voyage-content li {
+    margin-bottom: 10px;
+
+    font-size: 0.95rem;
+    line-height: 1.7;
+
+    color: var(--couleur-texte-clair);
+}
+
+.carnet-voyage-content p {
+    margin: 0;
+
+    font-family: var(--police-titre);
+    font-size: 1.4rem;
+    font-style: italic;
+
+    color: var(--couleur-principale);
+}
+
+
+/* ---------- Inclusions ---------- */
+
+.inclusions-section {
+    padding: 60px 40px;
+
+    background-color: var(--couleur-fond-offres);
+    color: var(--couleur-texte-clair);
+}
+
+.inclusions-section h2 {
+    margin-bottom: 50px;
+
+    font-family: var(--police-titre);
+    font-size: 2.2rem;
+    font-weight: normal;
+
+    color: var(--couleur-texte-clair);
+    text-align: center;
+}
+
+.inclusions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 40px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.inclusion-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.inclusion-icon {
+    width: 160px;
+    height: 160px;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+    /* Garantit un cercle net quelle que soit l'image */
+    -webkit-mask-image: radial-gradient(circle, #fff 100%, transparent 100%);
+    mask-image: radial-gradient(circle, #fff 100%, transparent 100%);
+}
+
+.inclusion-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+    border-radius: 50%;
+}
+
+.inclusion-item p {
+    margin: 0;
+
+    font-family: var(--police-texte);
+    font-size: 0.9rem;
+    line-height: 1.4;
+
+    color: var(--couleur-texte-clair);
+}
+
+
+/* ==================================================
+   14. PAGE TRAVEL PLANNER
+================================================== */
+
+/* ---------- Bandeau d'en-tête ---------- */
+.tp-container-hero {
+    max-width: 100%;
+    height: clamp(280px, 65vh, 600px);
+    margin: 5px auto;
+    overflow: hidden;
+}
+
+.tp-container-hero img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.tp-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 clamp(12px, 4vw, 24px);
+}
+
+.tp-hero {
+    position: relative;
+    padding: 0 0 40px;
+    text-align: center;
+}
+
+.tp-hero h1 {
+    display: inline-block;
+    max-width: 90%;
+    padding: 10px 20px;
+
+    background: rgba(100, 150, 224, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+
+    color: var(--couleur-texte-clair);
+
+    font-size: clamp(1.6rem, 5vw, 3.5rem);
+    font-weight: 500;
+    letter-spacing: 2px;
+
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.tp-hero h1 b {
+    font-weight: 500;
+}
+
+/* Titre posé par-dessus l'image de bandeau */
+.titreImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -85%);
+    width: 90%;
+
+    color: var(--couleur-texte-clair);
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    text-align: center;
+}
+
+/* ---------- Titres & intro ---------- */
+
+.tp-title-underline {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 24px;
+
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    color: var(--couleur-texte);
+    text-decoration: none;
+}
+
+.tp-title-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+
+    width: 60px;
+    height: 3px;
+
+    background-color: var(--couleur-bleu);
+    border-radius: 2px;
+}
+
+.tp-intro {
+    padding: 10px 0 10px;
+}
+
+.tp-lead {
+    margin-bottom: 16px;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    color: var(--couleur-texte);
+}
+
+.tp-intro p {
+    margin-bottom: 20px;
+
+    font-size: 1.05rem;
+    color: var(--couleur-texte-doux);
+}
+
+.tp-intro h3 {
+    margin: 36px 0 16px;
+
+    font-size: 1.3rem;
+    color: var(--couleur-texte);
+}
+
+.tp-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+    margin-bottom: 24px;
+    list-style: none;
+}
+
+.tp-list li {
+    position: relative;
+    padding-left: 28px;
+    color: var(--couleur-texte-doux);
+}
+
+.tp-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    color: var(--couleur-bleu);
+    font-weight: bold;
+}
+
+
+/* ---------- Galerie ---------- */
+
+.tp-gallery {
+    padding: 10px 0 10px;
+}
+
+.tp-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.tp-img-box img {
+    width: 100%;
+    height: 380px;
+
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+
+    transition: transform 0.3s ease;
+}
+
+.tp-img-box img:hover {
+    transform: translateY(-4px);
+}
+
+
+/* ---------- Pourquoi ---------- */
+
+.tp-why {
+    padding: 10px 0;
+}
+
+.tp-grid-2-align {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 48px;
+}
+
+.tp-why-image img {
+    width: 100%;
+    height: 480px;
+
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.tp-ordered-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+    margin-top: 20px;
+
+    list-style: none;
+    counter-reset: item;
+}
+
+.tp-ordered-list li {
+    position: relative;
+    padding-left: 36px;
+
+    counter-increment: item;
+    color: var(--couleur-texte-doux);
+}
+
+.tp-ordered-list li::before {
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    top: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 22px;
+    height: 22px;
+
+    background-color: var(--couleur-bleu-clair);
+    color: var(--couleur-bleu);
+    border-radius: 50%;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+
+/* ---------- Processus en 5 étapes ---------- */
+
+.tp-steps {
+    margin-top: 40px;
+    padding: 80px 0;
+
+    background-color: var(--couleur-fond-doux);
+}
+
+.tp-steps-title {
+    margin-bottom: 60px;
+
+    font-family: var(--police-titre);
+    font-size: 2.2rem;
+    font-weight: 600;
+
+    color: var(--couleur-texte);
+    text-align: center;
+}
+
+.tp-steps-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 60px;
+}
+
+.tp-step-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Trait plein entre deux étapes d'une même ligne (centre à centre,
+   masqué sous les pastilles). Exclut la 3e colonne et la dernière étape. */
+.tp-step-item:not(:nth-child(3n)):not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 26px;
+    left: 50%;
+
+    width: calc(100% + 40px);
+    height: 1px;
+
+    background-color: var(--couleur-trait);
+    z-index: 0;
+}
+
+/* Pointillés de continuité entre la fin de ligne 1 et le début de ligne 2 */
+.tp-step-item:nth-child(3)::after,
+.tp-step-item:nth-child(4)::before {
+    content: '';
+    position: absolute;
+    top: 26px;
+
+    border-top: 1px dashed var(--couleur-trait);
+    z-index: 0;
+}
+
+.tp-step-item:nth-child(3)::after {
+    left: 50%;
+    right: 0;
+}
+
+.tp-step-item:nth-child(4)::before {
+    left: 0;
+    right: 50%;
+}
+
+.tp-step-number {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tp-step-number h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+    margin: 0;
+
+    background-color: var(--couleur-bleu-clair);
+    color: var(--couleur-bleu);
+    border-radius: 50%;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.tp-step-text h3 {
+    margin-bottom: 12px;
+
+    font-family: var(--police-titre);
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    color: var(--couleur-texte);
+}
+
+.tp-step-text p {
+    max-width: 320px;
+    margin: 0 auto 10px;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    color: var(--couleur-texte-doux);
+}
+
+.tp-step-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==================================================
+   15. PAGE FAQ
+================================================== */
+
+.page-faq {
+    background-color: var(--couleur-fond-offres);
+}
+
+.faq-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.faq-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.faq-header h1 {
+    margin-bottom: 10px;
+    padding-top: 10px;
+
+    font-size: 2.5rem;
+    color: var(--couleur-texte-clair);
+}
+
+.faq-header p {
+    padding-bottom: 10px;
+
+    font-size: 1.1rem;
+    color: var(--couleur-principale);
+}
+
+
+/* ---------- Accordéon ---------- */
+
+.faq-accordion {
+    display: flex;
+    flex-direction: column;
+    flex: 1.5;
+
+    gap: 15px;
+    margin: 0 0 40px;
+}
+
+.faq-item {
+    background-color: var(--couleur-fond);
+
+    border: 1px solid var(--couleur-bordure-legere);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+
+    transition:
+        box-shadow var(--transition-duree) ease,
+        border-color var(--transition-duree) ease;
+}
+
+.faq-item[open] {
+    border-color: var(--couleur-bleu);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    color: var(--couleur-bleu);
+    cursor: pointer;
+    user-select: none;
+
+    /* Masque la flèche native du <details> */
+    list-style: none;
+}
+
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+
+/* ---------- Icône + / - ---------- */
+
+.faq-icon {
+    position: relative;
+    flex-shrink: 0;
+
+    width: 16px;
+    height: 16px;
+    margin-left: 15px;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+    content: "";
+    position: absolute;
+    background-color: var(--couleur-noir);
+}
+
+.faq-icon::before {
+    top: 50%;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    transform: translateY(-50%);
+}
+
+.faq-icon::after {
+    top: 0;
+    left: 50%;
+
+    width: 2px;
+    height: 100%;
+
+    transform: translateX(-50%);
+    transition:
+        transform var(--transition-duree) ease,
+        opacity var(--transition-duree) ease;
+}
+
+.faq-item[open] .faq-icon::after {
+    transform: translateX(-50%) rotate(90deg);
+    opacity: 0;
+}
+
+
+/* ---------- Réponse ---------- */
+
+.faq-answer {
+    max-height: 0;
+    margin: 0 20px;
+    padding: 0 20px 20px;
+
+    font-size: 1rem;
+    line-height: 1.6;
+
+    color: var(--couleur-texte);
+    text-align: justify;
+    overflow: hidden;
+
+    transition:
+        max-height var(--transition-duree) ease,
+        padding var(--transition-duree) ease;
+}
+
+
+/* ---------- Image latérale ---------- */
+
+.faq-image-container,
+.faq-image {
+    position: sticky;
+    top: 20px;
+    align-self: center;
+    flex: 0.9;
+
+    max-width: 480px;
+
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.faq-image-container img,
+.faq-image img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+    max-height: 800px;
+
+    object-fit: cover;
+}
+
+
+/* ==================================================
+   16. PAGES LÉGALES
+   Mentions légales (ml-), confidentialité (pc-), CGS (cgs-)
+================================================== */
+
+.page-mentions-legales,
+.page-confidentialite,
+.page-cgs {
+    background-color: var(--couleur-fond);
+}
+
+
+/* ---------- En-têtes ---------- */
+
+.ml-head,
+.pc-head,
+.cgs-intro {
+    padding: 80px 20px 50px;
+
+    background-color: var(--couleur-bleu);
+    color: var(--couleur-texte-clair);
+
+    text-align: center;
+}
+
+.ml-head h1,
+.pc-head h1,
+.cgs-intro h1 {
+    margin: 0 0 25px;
+
+    font-family: var(--police-titre);
+    font-size: var(--taille-titre-section);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.cgs-intro h1 {
+    margin-top: 10px;
+}
+
+.ml-head p,
+.pc-head p {
+    max-width: var(--largeur-max-texte);
+    margin: 0 auto;
+
+    font-family: var(--police-texte);
+    font-size: var(--taille-texte);
+    line-height: 1.75;
+}
+
+.pc-head p {
+    margin-bottom: var(--espace-sm);
+    text-align: left;
+}
+
+.cgs-intro p {
+    font-family: var(--police-texte);
+    line-height: 1.7;
+    text-align: left;
+}
+
+.lien-site {
+    color: var(--couleur-principale) !important;
+}
+
+
+/* ---------- Blocs de contenu ---------- */
+
+.ml-editeur,
+.ml-activite,
+.ml-propriete,
+.ml-responsabilite,
+.ml-hypertexte,
+.ml-contact,
+.pc-responsable,
+.pc-concerne,
+.pc-donnees,
+.pc-finalites,
+.pc-obligation,
+.pc-conservation,
+.pc-tiers,
+.pc-prestataires,
+.pc-securite,
+.pc-droits,
+.pc-exercice,
+.pc-cnil,
+.pc-cookies,
+.pc-evolution,
+.pc-contact {
+    max-width: var(--largeur-max-texte);
+    margin: 0 auto;
+    padding: var(--espace-lg) 20px;
+
+    border-bottom: 1px solid var(--couleur-bordure-legere);
+}
+
+/* Dernier bloc de chaque page : pas de séparateur */
+.ml-contact,
+.pc-contact {
+    border-bottom: none;
+    padding-bottom: 100px;
+}
+
+.ml-editeur h2,
+.ml-activite h2,
+.ml-propriete h2,
+.ml-responsabilite h2,
+.ml-hypertexte h2,
+.ml-contact h2,
+.pc-responsable h2,
+.pc-concerne h2,
+.pc-donnees h2,
+.pc-finalites h2,
+.pc-obligation h2,
+.pc-conservation h2,
+.pc-tiers h2,
+.pc-prestataires h2,
+.pc-securite h2,
+.pc-droits h2,
+.pc-exercice h2,
+.pc-cnil h2,
+.pc-cookies h2,
+.pc-evolution h2,
+.pc-contact h2 {
+    margin: 0 0 var(--espace-md);
+
+    font-family: var(--police-titre);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.3;
+
+    color: var(--couleur-bleu-marine);
+}
+
+.ml-editeur p,
+.ml-activite p,
+.ml-propriete p,
+.ml-responsabilite p,
+.ml-hypertexte p,
+.ml-contact p,
+.pc-responsable p,
+.pc-concerne p,
+.pc-donnees p,
+.pc-finalites p,
+.pc-obligation p,
+.pc-conservation p,
+.pc-tiers p,
+.pc-prestataires p,
+.pc-securite p,
+.pc-droits p,
+.pc-exercice p,
+.pc-cnil p,
+.pc-cookies p,
+.pc-evolution p,
+.pc-contact p {
+    margin: 0 0 var(--espace-sm);
+
+    font-family: var(--police-texte);
+    font-size: var(--taille-texte);
+    line-height: 1.75;
+
+    color: var(--couleur-texte-secondaire);
+    text-align: justify;
+}
+
+
+/* ---------- Coordonnées (blocs identité) ---------- */
+
+.ml-editeur p u {
+    display: inline-block;
+
+    margin-top: var(--espace-md);
+    margin-bottom: var(--espace-xs);
+
+    font-weight: 600;
+
+    color: var(--couleur-texte);
+    text-decoration-color: var(--couleur-accent-dore);
+    text-underline-offset: 4px;
+}
+
+.ml-editeur p:first-of-type u {
+    margin-top: 0;
+}
+
+.ml-editeur p:not(:has(u)) {
+    margin-bottom: var(--espace-xs);
+    text-align: left;
+}
+
+.ml-editeur li{
+    margin-left : 40px;
+}
+
+.pc-identite {
+    margin-bottom: var(--espace-xs) !important;
+    text-align: left !important;
+}
+
+.pc-responsable .pc-identite:first-of-type {
+    margin-top: var(--espace-md);
+}
+
+.pc-responsable .pc-identite:last-of-type {
+    margin-bottom: var(--espace-md) !important;
+}
+
+
+/* ---------- Listes ---------- */
+
+.pc-liste,
+.cgs-list {
+    margin: 0 0 var(--espace-md);
+    padding-left: 22px;
+}
+
+.pc-liste li,
+.cgs-list li {
+    margin-bottom: var(--espace-sm);
+
+    font-family: var(--police-texte);
+    font-size: var(--taille-texte);
+    line-height: 1.75;
+
+    color: var(--couleur-texte-secondaire);
+}
+
+.pc-liste li strong {
+    color: var(--couleur-texte);
+    font-weight: 600;
+}
+
+
+/* ---------- CGS ---------- */
+
+.cgs-container {
+    max-width: var(--largeur-max-texte);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.cgs-body {
+    padding: 60px 0 100px;
+}
+
+.cgs-article {
+    margin-bottom: var(--espace-xl);
+    padding-bottom: var(--espace-xl);
+
+    border-bottom: 1px solid var(--couleur-bordure-legere);
+}
+
+.cgs-article:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.cgs-article h2 {
+    margin: 0 0 20px;
+
+    font-family: var(--police-titre);
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    color: var(--couleur-bleu-marine);
+}
+
+.cgs-article p {
+    margin: 0 0 16px;
+
+    font-family: var(--police-texte);
+    font-size: var(--taille-texte);
+    line-height: 1.75;
+
+    color: var(--couleur-texte-secondaire);
+    text-align: justify;
+}
+
+.cgs-highlight {
+    padding: 18px 22px;
+
+    background-color: var(--couleur-fond-alt);
+    border-left: 4px solid var(--couleur-accent-dore);
+
+    line-height: 1.8 !important;
+}
+
+
+/* ---------- Liens ---------- */
+
+.ml-head a,
+.ml-editeur a,
+.ml-contact a,
+.pc-head a,
+.pc-responsable a,
+.pc-obligation a,
+.pc-exercice a,
+.pc-contact a,
+.cgs-article a {
+    color: var(--couleur-bleu);
+    text-underline-offset: 3px;
+
+    transition: color var(--transition-duree) ease;
+}
+
+.ml-head a:hover,
+.ml-editeur a:hover,
+.ml-contact a:hover,
+.pc-head a:hover,
+.pc-responsable a:hover,
+.pc-obligation a:hover,
+.pc-exercice a:hover,
+.pc-contact a:hover,
+.cgs-article a:hover {
+    color: var(--couleur-bleu-fonce);
+}
+
+
+/* ==================================================
+   17. RESPONSIVE
+   Points de rupture : 1024 / 900 / 868 / 768 / 600
+================================================== */
+
+/* ---------- 1024px ---------- */
+
+@media (max-width: 1024px) {
+
+    .inclusions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 20px;
+    }
+}
+
+
+/* ---------- 900px ---------- */
+
+@media (max-width: 900px) {
+
+    .faq-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .faq-accordion {
+        width: 100%;
+    }
+
+    .faq-image-container,
+    .faq-image {
+        width: 100%;
+        max-width: 350px;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* ---------- 868px ---------- */
+
+@media (max-width: 868px) {
+
+    .carnet-voyage-section {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 20px;
+    }
+
+    .carnet-voyage-card {
+        max-width: 100%;
+    }
+
+    .carnet-voyage-titre h1 {
+        font-size: 2rem;
+    }
+
+    .carnet-voyage-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ---------- 768px ---------- */
+
+@media (max-width: 768px) {
+
+    /* ----- Header ----- */
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        z-index: 1000;
+
+        background-color: var(--couleur-fond-header);
+        overflow: visible;
+    }
+
+    .header-top {
+        height: 125px;
+    }
+
+    .logo img {
+        width: 200px;
+    }
+
+    .header-contact {
+        display: none;
+    }
+
+    /* ----- Bouton burger ----- */
+
+    .burger {
+        position: fixed;
+        top: 35px;
+        right: 20px;
+        z-index: 1010;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 42px;
+        height: 42px;
+        padding: 0;
+
+        background-color: var(--couleur-fond-header);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .burger span {
+        display: block;
+
+        width: 22px;
+        height: 2.5px;
+        margin: 2.5px 0;
+
+        background-color: var(--couleur-texte);
+        border-radius: 2px;
+
+        transition:
+            transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1),
+            opacity 0.3s ease;
+    }
+
+    /* Deux mécanismes d'ouverture : case à cocher (#burger-toggle) et
+       classe .is-active posée en JS */
+    #burger-toggle:checked ~ label .burger span:nth-child(1),
+    #burger-toggle:checked ~ .burger span:nth-child(1),
+    .burger.is-active span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+    }
+
+    #burger-toggle:checked ~ label .burger span:nth-child(2),
+    #burger-toggle:checked ~ .burger span:nth-child(2),
+    .burger.is-active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #burger-toggle:checked ~ label .burger span:nth-child(3),
+    #burger-toggle:checked ~ .burger span:nth-child(3),
+    .burger.is-active span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* ----- Tiroir de navigation ----- */
+
+    .header-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 1001;
+
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        overflow-y: auto;
+
+        padding: 80px 20px 40px;
+        gap: 20px;
+
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .header-nav.active,
+    .header-nav.is-active,
+    #burger-toggle:checked ~ .header-nav {
+        right: 0 !important;
+    }
+
+    .header-nav a {
+        position: relative;
+        z-index: 1002;
+
+        display: block;
+        padding: 10px 16px;
+
+        font-family: var(--police-titre);
+        font-size: 1.5rem;
+        font-weight: 600;
+
+        color: var(--couleur-texte) !important;
+        text-decoration: none;
+
+        transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .header-nav a:hover {
+        color: var(--couleur-bleu-fonce) !important;
+        transform: translateX(4px);
+    }
+
+    /* Pas de séparateurs dans le tiroir */
+    .header-nav a:not(:last-child)::after {
+        content: "";
+        margin-left: 0;
+    }
+
+    /* Bouton contact repoussé en bas du tiroir */
+    .header-nav .header-contact--mobile {
+        position: static;
+        display: inline-flex;
+        align-self: center;
+
+        width: auto;
+        margin-top: auto;
+        padding: 14px 40px;
+
+        background-color: var(--couleur-accent-dore);
+
+        text-align: center;
+        border-radius: 50px;
+    }
+
+    /* ----- Hero ----- */
+
+    .hero {
+        min-height: calc(100vh - 170px);
+        padding: 50px 15px;
+        background-attachment: scroll;
+    }
+
+    .hero-content {
+        padding: 30px 18px;
+        border-radius: 18px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    /* ----- Présentation & explication ----- */
+
+    .presentation-inner,
+    .explication-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    /* Texte au-dessus, image en dessous */
+    .presentation-text,
+    .explication-text {
+        order: 1;
+        width: 100%;
+        max-width: 650px;
+    }
+
+    .presentation-image,
+    .explication-image {
+        order: 2;
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .presentation-image img,
+    .explication-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* ----- Contact ----- */
+
+    .contact {
+        flex-direction: column;
+        padding: 40px 25px;
+    }
+
+    .contact-content {
+        order: 1;
+        max-width: 100%;
+    }
+
+    .contact-image {
+        order: 2;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    /* ----- Destinations ----- */
+
+    .DescriptionDestinations {
+        margin: 20px 15px;
+        padding: 25px 15px;
+    }
+
+    .Japon,
+    .Corfou,
+    .Canaries,
+    .Sicile,
+    .Italie,
+    .Andalousie,
+    .Corse {
+        flex-direction: column;
+        gap: 25px;
+        margin: 30px auto;
+    }
+
+    .Japon img, .Japon-content,
+    .Corfou img, .Corfou-content,
+    .Canaries img, .Canaries-content,
+    .Sicile img, .Sicile-content,
+    .Italie img, .Italie-content,
+    .Andalousie img, .Andalousie-content,
+    .Corse img, .Corse-content {
+        max-width: 100%;
+    }
+
+    .Japon-content h1,
+    .Corfou-content h1,
+    .Canaries-content h1,
+    .Sicile-content h1,
+    .Italie-content h1,
+    .Andalousie-content h1,
+    .Corse-content h1 {
+        font-size: 1.8rem;
+    }
+
+    /* ----- Offres ----- */
+
+    .offres-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .a-savoir {
+        padding: 25px 20px;
+    }
+
+    .inclusions-section h2 {
+        text-align: left;
+    }
+
+    .options-section .section-title {
+        font-size: 1.75rem;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .polaroid-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* ----- Travel planner ----- */
+
+    .tp-hero h1 {
+        font-size: 2rem;
+    }
+
+    .tp-grid-2,
+    .tp-grid-2-align {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .tp-steps-list {
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+    }
+
+    /* Traits de liaison inutiles en colonne unique */
+    .tp-step-item::before,
+    .tp-step-item::after {
+        display: none;
+    }
+
+    .tp-img-box img {
+        height: 260px;
+    }
+
+    .tp-why-image img {
+        height: 320px;
+    }
+
+    /* ----- FAQ ----- */
+
+    .faq-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .faq-question {
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    .faq-answer {
+        padding: 15px;
+    }
+
+    /* ----- Footer ----- */
+
+    .footer-nav a {
+        padding: 3px 5px;
+    }
+
+    .footer-nav a:not(:last-child)::after {
+        margin-left: 10px;
+    }
+
+    /* ----- Pages légales ----- */
+
+    .ml-head,
+    .pc-head {
+        padding: 50px 20px 25px;
+    }
+
+    .cgs-intro {
+        padding: 50px 20px 30px;
+    }
+
+    .ml-editeur,
+    .ml-activite,
+    .ml-propriete,
+    .ml-responsabilite,
+    .ml-hypertexte,
+    .ml-contact,
+    .pc-responsable,
+    .pc-concerne,
+    .pc-donnees,
+    .pc-finalites,
+    .pc-obligation,
+    .pc-conservation,
+    .pc-tiers,
+    .pc-prestataires,
+    .pc-securite,
+    .pc-droits,
+    .pc-exercice,
+    .pc-cnil,
+    .pc-cookies,
+    .pc-evolution,
+    .pc-contact {
+        padding: var(--espace-md) 20px;
+    }
+
+    .ml-contact,
+    .pc-contact {
+        padding-bottom: 60px;
+    }
+
+    .ml-editeur h2,
+    .ml-activite h2,
+    .ml-propriete h2,
+    .ml-responsabilite h2,
+    .ml-hypertexte h2,
+    .ml-contact h2,
+    .pc-responsable h2,
+    .pc-concerne h2,
+    .pc-donnees h2,
+    .pc-finalites h2,
+    .pc-obligation h2,
+    .pc-conservation h2,
+    .pc-tiers h2,
+    .pc-prestataires h2,
+    .pc-securite h2,
+    .pc-droits h2,
+    .pc-exercice h2,
+    .pc-cnil h2,
+    .pc-cookies h2,
+    .pc-evolution h2,
+    .pc-contact h2 {
+        font-size: 1.35rem;
+    }
+
+    .cgs-body {
+        padding: var(--espace-md) 20px;
+    }
+
+    .cgs-article {
+        margin-bottom: var(--espace-lg);
+        padding: var(--espace-md) 20px;
+    }
+}
+
+
+/* ---------- 600px ---------- */
+
+@media (max-width: 600px) {
+
+    .inclusions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inclusion-icon {
+        width: 140px;
+        height: 140px;
+    }
+}

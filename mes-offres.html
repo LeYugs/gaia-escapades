@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mes Offres - Gaïa Escapades</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-offres">
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <header>
+
+        <div class="header-top">
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/gaia_escapades?igsi=MXRwbDNnaWJ1dzJ4cQ==/" target="_blank" class="instagram" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img
+                    src="images/LogoMain.png"
+                    alt="Logo de Gaïa Escapades"
+                >
+            </a>
+
+            <!-- Bouton contact -->
+            <a href="contact.html" class="header-contact">
+                Contactez-moi
+            </a>
+
+            <!-- Burger -->
+            <button class="burger" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="header-nav">
+
+            <a href="index.html">Accueil</a>
+            <a href="travel-planner.html">Travel Planner</a>
+            <a href="mes-offres.html">Mes offres</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="faq.html">Foire aux questions</a>
+            
+            <a href="contact.html" class="header-contact header-contact--mobile">Contactez-moi</a>
+
+        </nav>
+
+    </header>
+    <!-- Voile d'arrière-plan à placer après le header -->
+    <div class="menu-overlay"></div>
+
+  <main>
+    <!-- Section Titre d'introduction -->
+    <section class="offres-intro">
+      <h1>Mes offres</h1>
+      <p class="intro-text">
+        Chaque voyage est différent. C’est pourquoi je vous propose plusieurs formules, pensées pour différents types de séjours.
+      </p>
+    </section>
+
+    <!-- Grille des 3 Offres -->
+    <div class="offres-grid">
+
+      <!-- Offre 1 : Formule Découverte / Court Séjour -->
+      <article class="offre-card">
+        <div class="offre-image1">
+          <img src="images/MesOffres/CAPRI.webp" alt="Formule Court Séjour">
+        </div>
+        <div class="offre-details">
+          <h1>Week-end & City Trip</h1>
+          <h2><i>à partir de 150€*</i></h2>
+          <p class="tagline">France & Europe — 2 à 5 jours</p>
+          <p>Une escapade de quelques jours pour découvrir une nouvelle ville, profiter d’un week-end en amoureux, partir entre amis ou simplement changer d’air.</p>
+          <p>Comprend la recherche et la sélection des prestations adaptées à vos envies et votre budget.</p>
+          <div class="offre-footer">
+            <a href="contact.html" class="btn-reserver">Demander un devis</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Offre 2 : Formule Sur-Mesure / Séjour Classique -->
+      <article class="offre-card">
+        <div class="offre-image2">
+          <img src="images/MesOffres/CORFOU.webp" alt="Formule Voyage Sur Mesure">
+        </div>
+        <div class="offre-details">
+          <h1>Voyage découverte</h1>
+          <h2><i>à partir de 300€*</i></h2>
+          <p class="tagline">Monde entier — 5 à 10 jours — 1 destination</p>
+          <p>Pour prendre le temps de découvrir une destination, sa culture, ses paysages, sa gastronomie et ses incontournables, tout en gardant du temps pour se détendre.</p>
+          <p>Un programme équilibré, conçu sur-mesure selon votre rythme.</p>
+          <div class="offre-footer">
+            <a href="contact.html" class="btn-reserver">Demander un devis</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Offre 3 : Formule Road Trip & Grand Voyage -->
+      <article class="offre-card">
+        <div class="offre-image3">
+          <img src="images/MesOffres/JAPON.webp" alt="Formule Road-Trip et Grand Voyage">
+        </div>
+        <div class="offre-details">
+          <h1>Road Trip</h1>
+          <h2><i>à partir de 450€*</i></h2>
+          <p class="tagline">Monde entier — 9 à 15 jours — 2 à 4 étapes</p>
+          <p>Envie de prendre la route et de découvrir plusieurs endroits au cours d’un même voyage ?</p>
+          <p>Construction d'un itinéraire cohérent tenant compte des étapes, des temps de trajet et de vos envies.</p>
+          <div class="offre-footer">
+            <a href="contact.html" class="btn-reserver">Demander un devis</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Note d'information explicative -->
+    <section class="offres-note">
+      <div class="note-card">
+        <p>
+          <i>* Le tarif indiqué correspond au prix de départ de la formule pour un maximum de 4 personnes. Le tarif final est établi sur devis en fonction de votre projet et des options choisies.</i>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section À savoir -->
+    <section class="a-savoir">
+        <div class="a-savoir-card">
+            <h2>À savoir avant de réserver</h2>
+            <p>
+                Mon rôle est de rechercher, comparer, sélectionner et organiser les différentes possibilités pour votre voyage. Je ne procède pas aux réservations à votre place.
+            </p>
+            <p>
+                Les hébergements, transports, activités, restaurants et autres prestations présentés dans votre programme sont des propositions et recommandations. Vous restez entièrement libre de choisir celles qui vous conviennent.
+            </p>
+            <p>
+                Les réservations et les paiements des prestations sont effectués directement par vous auprès des prestataires concernés, grâce aux liens que je vous transmets.
+            </p>
+            <p>
+                Les disponibilités et les tarifs pouvant évoluer rapidement, les propositions sont données au moment de mes recherches et peuvent être amenées à changer avant votre réservation.
+            </p>
+            <p>
+                L’objectif est de vous permettre de faire vos choix sereinement, avec une sélection déjà étudiée en fonction de vos envies, vos critères et votre budget, sans avoir à passer des heures à chercher vous-même.
+            </p>
+        </div>
+    </section>
+
+    <section class="inclusions-section">
+    <h2>Dans chaque offre vous bénéficiez de :</h2>
+
+    <div class="inclusions-grid">
+        <!-- 1. Transports A/R -->
+        <div class="inclusion-item">
+            <div class="inclusion-icon">
+                <img src="images/MesOffres/VOL.webp" alt="Transports aller-retour">
+            </div>
+            <p>Une recherche des transports aller-retour adaptés à votre destination et à votre budget.</p>
+        </div>
+
+        <!-- 2. Hébergements -->
+        <div class="inclusion-item">
+            <div class="inclusion-icon">
+                <img src="images/MesOffres/HOTEL.webp" alt="Sélection d'hébergements">
+            </div>
+            <p>Une sélection de trois hébergements par ville, afin de vous permettre de comparer différentes possibilités. (Propositions variables en fonction de votre budget, de vos critères et des disponibilités).</p>
+        </div>
+
+        <!-- 3. Transports sur place -->
+        <div class="inclusion-item">
+            <div class="inclusion-icon">
+                <img src="images/MesOffres/METRO.webp" alt="Transports sur place">
+            </div>
+            <p>Une recherche des transports sur place : location de voiture, train, bus, métro, etc.</p>
+        </div>
+
+        <!-- 4. Liens directs -->
+        <div class="inclusion-item">
+            <div class="inclusion-icon">
+                <img src="images/MesOffres/LIEN.webp" alt="Liens directs">
+            </div>
+            <p>Les liens directs vers les prestations sélectionnées afin que vous puissiez les consulter et effectuer vous-même vos réservations.</p>
+        </div>
+
+        <!-- 5. Activités -->
+        <div class="inclusion-item">
+            <div class="inclusion-icon">
+                <img src="images/MesOffres/MUSEE.webp" alt="Sélection d'activités">
+            </div>
+            <p>Une sélection d'activités et de visites adaptées à vos envies.</p>
+        </div>
+
+        <!-- 6. Restaurants -->
+        <div class="inclusion-item">
+            <div class="inclusion-icon">
+                <img src="images/MesOffres/RESTO.webp" alt="Bonnes adresses et restaurants">
+            </div>
+            <p>Une sélection de bonnes adresses et restaurants.</p>
+        </div>
+
+        <!-- 7. Planning -->
+        <div class="inclusion-item">
+            <div class="inclusion-icon">
+                <img src="images/MesOffres/PLANNING.webp" alt="Planning jour par jour">
+            </div>
+            <p>Un planning jour par jour, regroupant les différentes activités et suggestions retenues pour votre séjour.</p>
+        </div>
+
+        <!-- 8. Carnet de voyage -->
+        <div class="inclusion-item">
+            <div class="inclusion-icon">
+                <img src="images/MesOffres/CARNET.webp" alt="Carnet de voyage personnalisé">
+            </div>
+            <p>Votre carnet de voyage personnalisé en format numérique.</p>
+        </div>
+    </div>
+</section>
+
+<section class="options-section">
+  <h2 class="section-title">Des options pour rendre votre voyage encore plus personnel</h2>
+
+  <div class="cards-container">
+    <!-- Carte 1 -->
+    <div class="polaroid-card">
+      <div class="image-wrapper">
+        <img src="images/MesOffres/JUNE.webp" alt="Voyage avec votre chien">
+      </div>
+      <div class="card-content">
+        <h3>Voyage avec votre chien</h3>
+        <p>Recherche d'hébergements, activités et lieux dog friendly, ainsi que des solutions adaptées pour voyager avec votre compagnon.</p>
+      </div>
+    </div>
+
+    <!-- Carte 2 -->
+    <div class="polaroid-card">
+      <div class="image-wrapper">
+        <img src="images/MesOffres/PLAGE.webp" alt="Voyage romantique">
+      </div>
+      <div class="card-content">
+        <h3>Voyage romantique</h3>
+        <p>Pour une lune de miel, un anniversaire de rencontre, une demande en mariage ou simplement une escapade à deux, je recherche des expériences et des adresses qui donneront une dimension romantique à votre séjour.</p>
+      </div>
+    </div>
+
+    <!-- Carte 3 -->
+    <div class="polaroid-card">
+      <div class="image-wrapper">
+        <img src="images/MesOffres/VERRE.webp" alt="EVJF / EVG, Anniversaire">
+      </div>
+      <div class="card-content">
+        <h3>EVJF / EVG, Anniversaire</h3>
+        <p>Organisation d'un séjour adapté à votre groupe, à vos envies et à l'ambiance recherchée.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-footer">D'autres options pourront également être imaginées selon votre projet.</p>
+</section>
+
+<section class="carnet-voyage-section">
+    <div class="carnet-voyage-card">
+        <div class="carnet-voyage-titre">
+            <h1>Le carnet de voyage</h1>
+        </div>
+        <div class="carnet-voyage-image">
+            <img src="images/MesOffres/CarnetVoyage.webp" alt="Carnet de voyage personnalisé">
+        </div>
+    </div>
+    <div class="carnet-voyage-content">
+        <h2>Vous y retrouverez :</h2>
+        <ul>
+            <li>vos informations de voyage et de réservations</li>
+            <li>votre itinéraire détaillé</li>
+            <li>les activités et visites prévues</li>
+            <li>une sélection de bonnes adresses</li>
+            <li>mes bons plans et conseils</li>
+            <li>les informations pratiques sur votre (vos) destination(s)</li>
+            <li>les éventuelles formalités à prévoir : visa, autorisation de voyage, documents nécessaires…</li>
+            <li>les applications utiles à télécharger</li>
+            <li>une liste des choses à prévoir dans votre valise</li>
+            <li>toutes les informations qui pourront vous être utiles pendant votre séjour</li>
+        </ul>
+        <p>(possibilité de l'avoir en format papier avec un supplément)</p>
+    </div>
+</section>
+
+  </main>
+
+
+
+        <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="footer">
+
+        <nav class="footer-nav">
+
+            <a href="index.html">Accueil</a>
+            <a href="contact.html">Contact</a>
+            <a href="mentions-legales.html">Mentions légales</a>
+            <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+            <a href="cgs.html">CGS</a>
+
+        </nav>
+
+        <p>
+            Copyright &copy; 2026 Gaïa Escapades -
+            Tous droits réservés.
+        </p>
+
+    </footer>
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
