@@ -2866,12 +2866,12 @@ header {
     }
 
     .cgs-body {
-        padding: var(--espace-md) 20px;
+        padding: var(--espace-md) 10px;
     }
 
     .cgs-article {
         margin-bottom: var(--espace-lg);
-        padding: var(--espace-md) 20px;
+        padding: var(--espace-md) 10px;
     }
 }
 
