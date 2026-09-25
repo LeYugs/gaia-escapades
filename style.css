@@ -2865,15 +2865,6 @@ header {
     .pc-contact h2 {
         font-size: 1.35rem;
     }
-
-    .cgs-body {
-        padding: var(--espace-md) 10px;
-    }
-
-    .cgs-article {
-        margin-bottom: var(--espace-lg);
-        padding: var(--espace-md) 10px;
-    }
 }
 
 
