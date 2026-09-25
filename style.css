@@ -2591,6 +2591,7 @@ header {
 
         width: auto;
         margin-top: auto;
+        margin-bottom: 20px;
         padding: 14px 40px;
 
         background-color: var(--couleur-accent-dore);
