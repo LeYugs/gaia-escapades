@@ -2591,10 +2591,9 @@ header {
 
         width: auto;
         margin-top: auto;
-        margin-bottom: 20px;
         padding: 14px 40px;
 
-        background-color: var(--couleur-bleu);
+        background-color: var(--couleur-accent-dore);
 
         text-align: center;
         border-radius: 50px;
