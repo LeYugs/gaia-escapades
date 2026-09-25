@@ -2585,19 +2585,20 @@ header {
 
     /* Bouton contact repoussé en bas du tiroir */
     .header-nav .header-contact--mobile {
-        position: static;
-        display: inline-flex;
-        align-self: center;
+    position: static;
+    display: inline-flex;
+    align-self: center;
 
-        width: auto;
-        margin-top: auto;
-        padding: 14px 40px;
+    width: auto;
+    margin-top: auto;
+    margin-bottom: calc(30px + env(safe-area-inset-bottom));
+    padding: 14px 40px;
 
-        background-color: var(--couleur-accent-dore);
+    background-color: var(--couleur-accent-dore);
 
-        text-align: center;
-        border-radius: 50px;
-    }
+    text-align: center;
+    border-radius: 50px;
+}
 
     /* ----- Hero ----- */
 
